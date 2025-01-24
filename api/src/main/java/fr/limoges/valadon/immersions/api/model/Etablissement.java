@@ -32,7 +32,7 @@ public class Etablissement {
     @Column(name = "civilite_proviseur")
     private String civiliteProviseur;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL) //TYPE DE CASCADE A CHANGER SI BESOIN
     @JoinColumn(name = "id_type")
     private TypeEtablissement typeEtablissement;
 

@@ -24,7 +24,7 @@ public class Users {
     @Column(name = "role")
     private String role;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL) //TYPE DE CASCADE A CHANGER SI BESOIN
     @JoinColumn(name = "id_etablissement")
     private Etablissement etablissement;
 

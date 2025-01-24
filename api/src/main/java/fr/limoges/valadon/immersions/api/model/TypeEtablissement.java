@@ -11,10 +11,17 @@ public class TypeEtablissement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idType;
 
-    @Column(name = "nom_type")
+    @Column(name = "nom_type", nullable = false, length = 50)
     private String nomType;
 
-    // Getters and Setters
+    // Constructeurs
+    public TypeEtablissement() {}
+
+    public TypeEtablissement(String nomType) {
+        this.nomType = nomType;
+    }
+
+    // Getters et Setters
     public Integer getIdType() {
         return idType;
     }
