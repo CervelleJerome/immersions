@@ -15,7 +15,8 @@ public class TypeEtablissement {
     private String nomType;
 
     // Constructeurs
-    public TypeEtablissement() {}
+    public TypeEtablissement() {
+    }
 
     public TypeEtablissement(String nomType) {
         this.nomType = nomType;
