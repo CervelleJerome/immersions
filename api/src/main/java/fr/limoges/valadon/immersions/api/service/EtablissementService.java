@@ -36,6 +36,7 @@ public class EtablissementService {
             etablissement.setPrenomProviseur(etablissementDetails.getPrenomProviseur());
             etablissement.setCiviliteProviseur(etablissementDetails.getCiviliteProviseur());
             etablissement.setTypeEtablissement(etablissementDetails.getTypeEtablissement());
+            etablissement.setDomaine(etablissementDetails.getDomaine());
             return etablissementRepository.save(etablissement);
         }).orElse(null);
     }

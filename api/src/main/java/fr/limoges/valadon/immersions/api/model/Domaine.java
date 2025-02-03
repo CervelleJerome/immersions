@@ -3,7 +3,7 @@ package fr.limoges.valadon.immersions.api.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "domaine")
+@Table(name = "domaine_classe")
 public class Domaine{
 
     @Id
@@ -28,5 +28,9 @@ public class Domaine{
 
     public void setNomDomaine(String nomDomaine) {
         this.nomDomaine = nomDomaine;
+    }
+
+    public Domaine() {
+
     }
 }
