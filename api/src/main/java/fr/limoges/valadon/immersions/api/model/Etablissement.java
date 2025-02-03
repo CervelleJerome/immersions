@@ -36,7 +36,20 @@ public class Etablissement {
     @JoinColumn(name = "id_type")
     private TypeEtablissement typeEtablissement;
 
+    @ManyToOne(cascade = CascadeType.ALL) //TYPE DE CASCADE A CHANGER SI BESOIN
+    @JoinColumn(name = "id_domaine", nullable = false)
+    private Domaine domaine;
+
+
     // Getters and Setters
+
+    public Domaine getDomaine() {
+        return domaine;
+    }
+
+    public void setDomaine(Domaine domaine) {
+        this.domaine = domaine;
+    }
     public Integer getIdEtablissement() {
         return idEtablissement;
     }
