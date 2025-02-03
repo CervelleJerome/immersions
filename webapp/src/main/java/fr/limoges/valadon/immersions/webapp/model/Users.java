@@ -1,5 +1,7 @@
 package fr.limoges.valadon.immersions.webapp.model;
+import lombok.Data;
 
+@Data
 public class Users {
 
     private Integer idUser;
