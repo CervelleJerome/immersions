@@ -1,6 +1,8 @@
 package fr.limoges.valadon.immersions.api.model;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+
 import java.util.List;
 
 
@@ -27,6 +29,7 @@ public class Users {
     @ManyToOne(cascade = CascadeType.ALL) //TYPE DE CASCADE A CHANGER SI BESOIN
     @JoinColumn(name = "id_etablissement")
     private Etablissement etablissement;
+
 
     // Getters and Setters
     public Integer getIdUser() {
@@ -76,4 +79,11 @@ public class Users {
     public void setEtablissement(Etablissement etablissement) {
         this.etablissement = etablissement;
     }
+
+    // Constructors
+
+    public Users() {
+    }
+
+
 }
