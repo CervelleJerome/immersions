@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
+    <link rel="stylesheet" th:href="@{/css/styleLogin.css}">
 </head>
 <body>
-<h1>Page de Connexion</h1>
-<form method="post" action="/login">
-    <label for="username">Email :</label>
-    <input type="text" id="username" name="username" required><br><br>
+<div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+            <input type="checkbox" class="toggle">
+            <span class="slider"></span>
+            <span class="card-side"></span>
+            <div class="flip-card__inner">
+                <!-- Login Form -->
+                <div class="flip-card__front">
+                    <div class="title">Connexion</div>
+                    <form class="flip-card__form" method="post" th:action="@{/login}">
+                        <input class="flip-card__input" name="username" placeholder="Email" type="email" required>
+                        <input class="flip-card__input" name="password" placeholder="Mot de passe" type="password" required>
+                        <button class="flip-card__btn" type="submit">Se connecter</button>
+                    </form>
+                </div>
 
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required><br><br>
 
-    <button type="submit">Se connecter</button>
-</form>
-
-<!-- Affichage des erreurs -->
-<div style="color: red;">
-    <p th:if="${param.error}" th:text="'Erreur : email ou mot de passe incorrect.'"></p>
-    <p th:if="${param.logout}" th:text="'Vous vous êtes déconnecté avec succès.'"></p>
+                <!-- Sign Up Form (non fonctionnel pour Spring Security par défaut) -->
+                <div class="flip-card__back">
+                    <div class="title">Inscription</div>
+                    <form class="flip-card__form" action="#">
+                        <input class="flip-card__input" placeholder="Nom" type="text">
+                        <input class="flip-card__input" name="email" placeholder="Email" type="email">
+                        <input class="flip-card__input" name="password" placeholder="Mot de passe" type="password">
+                        <button class="flip-card__btn">Confirmer</button>
+                    </form>
+                </div>
+            </div>
+        </label>
+    </div>
 </div>
 </body>
 </html>
