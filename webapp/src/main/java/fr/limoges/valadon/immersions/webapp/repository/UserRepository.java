@@ -1,6 +1,7 @@
 package fr.limoges.valadon.immersions.webapp.repository;
 import fr.limoges.valadon.immersions.webapp.CustomProperties;
 import fr.limoges.valadon.immersions.webapp.model.Users;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,19 +12,19 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import lombok.extern.slf4j.Slf4j;
-@Slf4j  // Lombok annotation to create the logger instance
+
+
 @Component
 
 public interface UserRepository extends JpaRepository<Users, Long> {
     Users findByUsername(String username);
 
-
     @Autowired
-    private CustomProperties props;
+    CustomProperties props = null;
 
 
-    public Iterable<Users> getEmployees() {
+
+    public default Iterable<Users> getEmployees() {
 
         System.out.println("props.getApiUrl() = " + props.getApiUrl());
         String baseApiUrl = props.getApiUrl();
@@ -41,7 +42,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     }
 
 
-    public Users getUsers(int id) {
+    public default Users getUsers(int id) {
         String baseApiUrl = props.getApiUrl();
         String getEmployeeUrl = baseApiUrl + "/employee/" + id;
 
@@ -58,7 +59,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     }
 
 
-    public Users createUsers(Users e) {
+    public default Users createUsers(Users e) {
         String baseApiUrl = props.getApiUrl();
         String createEmployeeUrl = baseApiUrl + "/employee";
 
@@ -75,9 +76,9 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     }
 
 
-    public Users updateUsers(Users e) {
+    public default Users updateUsers(Users e) {
         String baseApiUrl = props.getApiUrl();
-        String updateEmployeeUrl = baseApiUrl + "/employee/" + e.getId();
+        String updateEmployeeUrl = baseApiUrl + "/employee/" + e.getIdUser();
 
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Users> request = new HttpEntity<Users>(e);
@@ -92,7 +93,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     }
 
 
-    public void deleteUsers(int id) {
+    public default void deleteUser(int id) {
         String baseApiUrl = props.getApiUrl();
         String deleteEmployeeUrl = baseApiUrl + "/employee/" + id;
 

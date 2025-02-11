@@ -1,14 +1,34 @@
-package fr.limoges.valadon.immersions.webapp.model;
+package fr.limoges.valadon.immersions.api.model;
 
+import jakarta.persistence.*;
+import java.util.List;
+
+
+@Entity
+@Table(name = "users")
 public class Users {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUser;
+
+    @Column(name = "nom_user")
     private String nomUser;
+
+    @Column(name = "email_user")
     private String emailUser;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "role")
     private String role;
 
-    // Getters et setters
+    @ManyToOne(cascade = CascadeType.ALL) //TYPE DE CASCADE A CHANGER SI BESOIN
+    @JoinColumn(name = "id_etablissement")
+    private Etablissement etablissement;
+
+    // Getters and Setters
     public Integer getIdUser() {
         return idUser;
     }
@@ -49,5 +69,11 @@ public class Users {
         this.role = role;
     }
 
+    public Etablissement getEtablissement() {
+        return etablissement;
+    }
 
+    public void setEtablissement(Etablissement etablissement) {
+        this.etablissement = etablissement;
+    }
 }

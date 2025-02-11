@@ -1,4 +1,4 @@
-package fr.limoges.valadon.immersions.webapp.configuration;
+package fr.limoges.valadon.immersions.api.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +19,9 @@ public class SpringSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(auth ->{
-            auth.requestMatchers("/admin").hasRole("ADMIN");
-            auth.requestMatchers("/user").hasRole("USER");
-            auth.anyRequest().authenticated();
+    auth.requestMatchers("/admin").hasRole("ADMIN");
+    auth.requestMatchers("/user").hasRole("USER");
+    auth.anyRequest().authenticated();
         }).formLogin(Customizer.withDefaults()).build();
     }
 
