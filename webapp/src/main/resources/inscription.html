@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Inscription</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<h1>Inscription</h1>
-<form action="/users/register" method="post">
-    <label for="nomUser">Nom :</label>
-    <input type="text" id="nomUser" name="nomUser" required><br><br>
+<div id="header"></div>  <!-- Conteneur du header -->
 
-    <label for="emailUser">Email :</label>
-    <input type="email" id="emailUser" name="emailUser" required><br><br>
 
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required><br><br>
+<div class="form-container">
+    <h1>Inscription</h1>
+    <form action="/users/register" method="post">
+        <div class="form-group">
+            <label for="nomUser">Nom :</label>
+            <input type="text" id="nomUser" name="nomUser" required>
+        </div>
 
-    <label for="role">Rôle :</label>
-    <input type="text" id="role" name="role"><br><br>
+        <div class="form-group">
+            <label for="emailUser">Email :</label>
+            <input type="email" id="emailUser" name="emailUser" required>
+        </div>
 
-    <button type="submit">S'inscrire</button>
-</form>
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Rôle :</label>
+            <input type="text" id="role" name="role">
+        </div>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+</div>
+
+<div id="footer"></div>  <!-- Conteneur du footer -->
 </body>
 </html>
+
+<script>
+    // Charger le header
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("header").innerHTML = data);
+
+    // Charger le footer
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+</script>

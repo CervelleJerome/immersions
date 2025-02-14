@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immersions</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="header"></div>  <!-- Conteneur du header -->
+
+
+<div class="container">
+    <h1>Découvrez les immersions de votre lycée</h1>
+    <p>Voici les immersions proposé.</p>
+
+    <div class="immersions-list">
+        <div class="immersion-item">
+            <h2>Immersion en entreprise</h2>
+            <p>Immersion proposé</p>
+            <a href="#" class="button">En savoir plus</a>
+        </div>
+
+    </div>
+    <div id="footer"></div>  <!-- Conteneur du footer -->
+</div>
+</body>
+</html>
+<script>
+    // Charger le header
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("header").innerHTML = data);
+
+    // Charger le footer
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+</script>
