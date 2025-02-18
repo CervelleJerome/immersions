@@ -12,3 +12,4 @@ public interface EleveRepository extends JpaRepository<Eleve, Integer> {
     List<Eleve> findByPrenomEleve(String prenomEleve);
     List<Eleve> findByEtablissement_IdEtablissement(int idEtablissement);  // Mise à jour ici
 }
+
