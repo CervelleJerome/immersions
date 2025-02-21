@@ -10,7 +10,7 @@ CREATE TABLE enseignant (
 );
 
 CREATE TABLE periode (
-    id_periode VARCHAR(50) PRIMARY KEY,
+    id_periode INT AUTO_INCREMENT PRIMARY KEY,
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL
 );

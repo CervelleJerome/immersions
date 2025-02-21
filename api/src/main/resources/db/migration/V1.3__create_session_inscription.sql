@@ -4,7 +4,7 @@ CREATE TABLE session (
                          heure_debut TIME NOT NULL,
                          heure_fin TIME NOT NULL,
                          description VARCHAR(50),
-                         id_periode VARCHAR(50) NOT NULL,
+                         id_periode INT NOT NULL,
                          id_salle INT NOT NULL,
                          id_enseignant INT NOT NULL,
                          id_filiere INT NOT NULL,
