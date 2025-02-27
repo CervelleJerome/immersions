@@ -34,7 +34,7 @@
 
 .card-side::before {
     position: absolute;
-    content: 'Se connecter';
+    content: '';
     left: -95px;
     top: 0;
     width: 100px;
@@ -45,7 +45,7 @@
 
 .card-side::after {
     position: absolute;
-    content: 'S\'inscrire';
+    content: '';
     left: 70px;
     top: 0;
     width: 100px;

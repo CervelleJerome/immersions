@@ -42,6 +42,14 @@ public class SpringSecurityConfig {
                         .failureUrl("/login?error=true")
                         .defaultSuccessUrl("/", true)
                 )
+                .logout(logout -> logout
+                        .logoutUrl("/logout") // URL pour le logout
+                        .logoutSuccessHandler((request, response, authentication) -> {
+                            response.setStatus(200); // Répond avec un statut HTTP 200
+                        })
+                        .invalidateHttpSession(true) // Invalide la session
+                        .deleteCookies("JSESSIONID") // Supprime le cookie de session
+                )
                 .build();
     }
     @Bean
